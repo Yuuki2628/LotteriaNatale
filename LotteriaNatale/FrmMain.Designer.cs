@@ -96,7 +96,7 @@
             this.btnGenera.UseVisualStyleBackColor = true;
             this.btnGenera.Click += new System.EventHandler(this.btnGenera_Click);
             // 
-            // FrmLotteria
+            // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -109,7 +109,7 @@
             this.Controls.Add(this.lblNome);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.Name = "FrmLotteria";
+            this.Name = "FrmMain";
             this.Text = "Lotteria di Natale";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -120,10 +120,10 @@
 
         private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.Label lblScelta;
-        private System.Windows.Forms.RadioButton rbdPulsanti;
-        private System.Windows.Forms.RadioButton rbdCheckbox;
         private System.Windows.Forms.Button btnGenera;
         public System.Windows.Forms.TextBox txtNome;
+        public System.Windows.Forms.RadioButton rbdPulsanti;
+        public System.Windows.Forms.RadioButton rbdCheckbox;
     }
 }
 

@@ -13,6 +13,7 @@ namespace LotteriaNatale
     public partial class FrmMain : Form
     {
         FrmNumeri numeri;
+        int[] scelta;
 
         public FrmMain()
         {
@@ -48,6 +49,7 @@ namespace LotteriaNatale
         private void btnGenera_Click(object sender, EventArgs e)
         {
             numeri = new FrmNumeri(this);
+            numeri.Show();
         }
     }
 }
