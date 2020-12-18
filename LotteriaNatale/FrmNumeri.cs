@@ -10,11 +10,18 @@ using System.Windows.Forms;
 
 namespace LotteriaNatale
 {
-    public partial class Form1 : Form
+    public partial class FrmNumeri : Form
     {
-        public Form1()
+        FrmMain finestraPrincipale = null;
+        public FrmNumeri(FrmMain sender)
         {
             InitializeComponent();
+
+            finestraPrincipale = sender;
+
+            lblNome.Text = "Nome giocatore: " + finestraPrincipale.txtNome.Text;
+
+
         }
     }
 }

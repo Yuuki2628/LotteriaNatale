@@ -1,6 +1,6 @@
 ﻿namespace LotteriaNatale
 {
-    partial class Form1
+    partial class FrmMain
     {
         /// <summary>
         /// Variabile di progettazione necessaria.
@@ -32,7 +32,7 @@
             this.txtNome = new System.Windows.Forms.TextBox();
             this.lblScelta = new System.Windows.Forms.Label();
             this.rbdPulsanti = new System.Windows.Forms.RadioButton();
-            this.rbtCheckbox = new System.Windows.Forms.RadioButton();
+            this.rbdCheckbox = new System.Windows.Forms.RadioButton();
             this.btnGenera = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -51,6 +51,7 @@
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(141, 20);
             this.txtNome.TabIndex = 1;
+            this.txtNome.TextChanged += new System.EventHandler(this.txtNome_TextChanged);
             // 
             // lblScelta
             // 
@@ -71,17 +72,19 @@
             this.rbdPulsanti.TabStop = true;
             this.rbdPulsanti.Text = "Pulsanti";
             this.rbdPulsanti.UseVisualStyleBackColor = true;
+            this.rbdPulsanti.CheckedChanged += new System.EventHandler(this.rbdPulsanti_CheckedChanged);
             // 
-            // rbtCheckbox
+            // rbdCheckbox
             // 
-            this.rbtCheckbox.AutoSize = true;
-            this.rbtCheckbox.Location = new System.Drawing.Point(83, 90);
-            this.rbtCheckbox.Name = "rbtCheckbox";
-            this.rbtCheckbox.Size = new System.Drawing.Size(73, 17);
-            this.rbtCheckbox.TabIndex = 4;
-            this.rbtCheckbox.TabStop = true;
-            this.rbtCheckbox.Text = "Checkbox";
-            this.rbtCheckbox.UseVisualStyleBackColor = true;
+            this.rbdCheckbox.AutoSize = true;
+            this.rbdCheckbox.Location = new System.Drawing.Point(83, 90);
+            this.rbdCheckbox.Name = "rbdCheckbox";
+            this.rbdCheckbox.Size = new System.Drawing.Size(73, 17);
+            this.rbdCheckbox.TabIndex = 4;
+            this.rbdCheckbox.TabStop = true;
+            this.rbdCheckbox.Text = "Checkbox";
+            this.rbdCheckbox.UseVisualStyleBackColor = true;
+            this.rbdCheckbox.CheckedChanged += new System.EventHandler(this.rbtCheckbox_CheckedChanged);
             // 
             // btnGenera
             // 
@@ -91,20 +94,23 @@
             this.btnGenera.TabIndex = 5;
             this.btnGenera.Text = "GeneraTabellone";
             this.btnGenera.UseVisualStyleBackColor = true;
+            this.btnGenera.Click += new System.EventHandler(this.btnGenera_Click);
             // 
-            // Form1
+            // FrmLotteria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(366, 153);
             this.Controls.Add(this.btnGenera);
-            this.Controls.Add(this.rbtCheckbox);
+            this.Controls.Add(this.rbdCheckbox);
             this.Controls.Add(this.rbdPulsanti);
             this.Controls.Add(this.lblScelta);
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.lblNome);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.Name = "FrmLotteria";
+            this.Text = "Lotteria di Natale";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -113,11 +119,11 @@
         #endregion
 
         private System.Windows.Forms.Label lblNome;
-        private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Label lblScelta;
         private System.Windows.Forms.RadioButton rbdPulsanti;
-        private System.Windows.Forms.RadioButton rbtCheckbox;
+        private System.Windows.Forms.RadioButton rbdCheckbox;
         private System.Windows.Forms.Button btnGenera;
+        public System.Windows.Forms.TextBox txtNome;
     }
 }
 
