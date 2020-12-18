@@ -92,10 +92,19 @@ namespace LotteriaNatale
             {
                 CheckBox c = new CheckBox();
 
-                c.Text = i.ToString();
+                c.Text = (i + 1).ToString();
+
+                c.Margin = new Padding(0);
+                c.Padding = new Padding(0);
 
                 flpLotteria.Controls.Add(c);
+                c.Click += C_Click;
             }
+        }
+
+        private void C_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void btnCompleta_Click(object sender, EventArgs e)
