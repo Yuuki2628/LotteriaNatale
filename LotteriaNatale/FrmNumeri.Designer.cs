@@ -30,7 +30,7 @@
         {
             this.flpLotteria = new System.Windows.Forms.FlowLayoutPanel();
             this.lblNome = new System.Windows.Forms.Label();
-            this.btnRicrea = new System.Windows.Forms.Button();
+            this.btnVittoria = new System.Windows.Forms.Button();
             this.txtNumeriScelti = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
@@ -52,15 +52,16 @@
             this.lblNome.TabIndex = 1;
             this.lblNome.Text = "Nome giocatore:";
             // 
-            // btnRicrea
+            // btnVittoria
             // 
-            this.btnRicrea.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRicrea.Location = new System.Drawing.Point(292, 9);
-            this.btnRicrea.Name = "btnRicrea";
-            this.btnRicrea.Size = new System.Drawing.Size(104, 23);
-            this.btnRicrea.TabIndex = 2;
-            this.btnRicrea.Text = "Ricrea tabellone";
-            this.btnRicrea.UseVisualStyleBackColor = true;
+            this.btnVittoria.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnVittoria.Location = new System.Drawing.Point(280, 9);
+            this.btnVittoria.Name = "btnVittoria";
+            this.btnVittoria.Size = new System.Drawing.Size(116, 23);
+            this.btnVittoria.TabIndex = 2;
+            this.btnVittoria.Text = "Controlla se hai vinto";
+            this.btnVittoria.UseVisualStyleBackColor = true;
+            this.btnVittoria.Click += new System.EventHandler(this.btnCompleta_Click);
             // 
             // txtNumeriScelti
             // 
@@ -77,7 +78,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(404, 423);
             this.Controls.Add(this.txtNumeriScelti);
-            this.Controls.Add(this.btnRicrea);
+            this.Controls.Add(this.btnVittoria);
             this.Controls.Add(this.lblNome);
             this.Controls.Add(this.flpLotteria);
             this.Name = "FrmNumeri";
@@ -91,7 +92,7 @@
 
         private System.Windows.Forms.FlowLayoutPanel flpLotteria;
         private System.Windows.Forms.Label lblNome;
-        private System.Windows.Forms.Button btnRicrea;
+        private System.Windows.Forms.Button btnVittoria;
         private System.Windows.Forms.TextBox txtNumeriScelti;
     }
 }

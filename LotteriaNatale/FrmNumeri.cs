@@ -15,8 +15,8 @@ namespace LotteriaNatale
         FrmMain finestraPrincipale = null;
         Button[] pulsanti = new Button[90];
         CheckBox[] checkbox = new CheckBox[90];
-        int[] scelte = new int[90];
-        int numeriSelezionati = 0;
+        List<int> scelte = new List<int>();
+        Random g = new Random();
 
         public FrmNumeri(FrmMain sender)
         {
@@ -45,6 +45,7 @@ namespace LotteriaNatale
 
                 btn.Width = btn.Height = wBtn;
                 btn.Font = new Font("Tahoma", wBtn / 4);
+                btn.BackColor = Color.White;
 
                 btn.Margin = new Padding(0);
                 btn.FlatStyle = FlatStyle.Flat;
@@ -63,37 +64,67 @@ namespace LotteriaNatale
         {
             Button b = (Button)sender;
 
-            numeriSelezionati++;
-
-            Ordina(scelte);
-
-            b.Enabled = false;
-
-            for(int i = 0; i < numeriSelezionati; i++)
+            if (b.BackColor == Color.Green)
             {
-                txtNumeriScelti.Text = txtNumeriScelti.Text + " " + scelte[i].ToString();
+                scelte.Remove(Convert.ToInt32(b.Text));
+                b.BackColor = Color.White;
             }
+            else
+            {
+                scelte.Add(Convert.ToInt32(b.Text));
+
+                b.BackColor = Color.Green;
+
+                scelte.Sort();
+            }
+
+            string numeriScelti = "";
+            for (int i = 0; i < scelte.Count; i++)
+            {
+                numeriScelti = numeriScelti + " " + scelte[i];
+            }
+            txtNumeriScelti.Text = numeriScelti;
         }
 
         public void GeneraCheckbox()
         {
-
-        }
-
-        public void Ordina(int[] a)
-        {
-            int[] b = new int[90];
-            for(int i = 0; i < numeriSelezionati; i++)
+            for (int i = 0; i < 90; i++)
             {
-                int min = int.MaxValue;
-                for(int c = i; c < numeriSelezionati; c++)
-                {
-                    if (a[c] < min)
-                        min = a[c];
-                }
-                b[i] = min;
+                CheckBox c = new CheckBox();
+
+                c.Text = i.ToString();
+
+                flpLotteria.Controls.Add(c);
             }
-            a = b;
         }
-    }
+
+        private void btnCompleta_Click(object sender, EventArgs e)
+        {
+            int win = g.Next(1, 91);
+            bool vittoria = false;
+            for (int i = 0; i < scelte.Count && !vittoria; i++)
+            {
+                if (win == scelte[i])
+                {
+                    MessageBox.Show("Congratulazioni!\nHai vinto un premio", "Hai vinto!");
+                    vittoria = true;
+                }
+            }
+            if (vittoria)
+            {
+                MessageBox.Show("Congratulazioni!\nHai vinto un premio", "Hai vinto!");
+
+            }
+            else
+            {
+                MessageBox.Show("Peccato.\nNon hai vinto alcun premio", "Hai perso!");
+            }
+            for (int i = 0; i< 90; i++)
+            {
+                pulsanti[i].BackColor = Color.White;
+                pulsanti[i].Enabled = false;
+                btnVittoria.Enabled = false;
+            }
+        }
+}
 }
